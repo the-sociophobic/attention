@@ -1,0 +1,27 @@
+:root {
+  --frame-border: 100px;
+  --frame-width: 2px;
+  --social-size: 40px;
+}
+
+@media screen and ( max-width: 1024px ) {
+  :root {
+    --frame-border: 50px;
+    --social-size: 50px;
+  }
+}
+
+@media screen and ( max-width: 768px ) {
+  :root {
+    --frame-border: 50px;
+    --frame-width: 1px;
+    --social-size: 35px;
+  }
+}
+  
+@media screen and ( max-width: 576px ) {
+  :root {
+    --social-size: 42px;
+  }
+}
+  
