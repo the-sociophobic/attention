@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/attention/static/css/main.16b164d2.chunk.css",
+    "main.css": "/attention/static/css/main.4924e831.chunk.css",
     "main.js": "/attention/static/js/main.9d4bfcb4.chunk.js",
     "main.js.map": "/attention/static/js/main.9d4bfcb4.chunk.js.map",
     "runtime-main.js": "/attention/static/js/runtime-main.72173e2a.js",
@@ -8,9 +8,9 @@
     "static/js/2.171fe3fc.chunk.js": "/attention/static/js/2.171fe3fc.chunk.js",
     "static/js/2.171fe3fc.chunk.js.map": "/attention/static/js/2.171fe3fc.chunk.js.map",
     "index.html": "/attention/index.html",
-    "precache-manifest.6d99ef90ecd8c8c4f006f548409f3af4.js": "/attention/precache-manifest.6d99ef90ecd8c8c4f006f548409f3af4.js",
+    "precache-manifest.856ce86d1901e7a88657a057664eb032.js": "/attention/precache-manifest.856ce86d1901e7a88657a057664eb032.js",
     "service-worker.js": "/attention/service-worker.js",
-    "static/css/main.16b164d2.chunk.css.map": "/attention/static/css/main.16b164d2.chunk.css.map",
+    "static/css/main.4924e831.chunk.css.map": "/attention/static/css/main.4924e831.chunk.css.map",
     "static/js/2.171fe3fc.chunk.js.LICENSE.txt": "/attention/static/js/2.171fe3fc.chunk.js.LICENSE.txt",
     "static/media/index.sass": "/attention/static/media/logo.4b21be18.png",
     "static/media/favicon-black.ico": "/attention/static/media/favicon-black.1f758ba8.ico"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.72173e2a.js",
     "static/js/2.171fe3fc.chunk.js",
-    "static/css/main.16b164d2.chunk.css",
+    "static/css/main.4924e831.chunk.css",
     "static/js/main.9d4bfcb4.chunk.js"
   ]
 }
