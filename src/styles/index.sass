@@ -7,8 +7,16 @@
   src: url('./fonts/Montserrat/Montserrat-Light.ttf') format('truetype')
 
 @font-face
+  font-family: 'Montserrat-SemiBold'
+  src: url('./fonts/Montserrat/Montserrat-SemiBold.ttf') format('truetype')
+
+@font-face
   font-family: 'Montserrat-Bold'
   src: url('./fonts/Montserrat/Montserrat-Bold.ttf') format('truetype')
+
+@font-face
+  font-family: 'Montserrat-ExtraBold'
+  src: url('./fonts/Montserrat/Montserrat-ExtraBold.ttf') format('truetype')
 
 
 $dark: rgb(17, 17, 22)
@@ -17,6 +25,7 @@ $main: rgb(244, 20, 52)
 
 $breakpoint-1024: 1024px
   
+$border-width: var(--border-width)
 
 // ::-webkit-scrollbar
 //   width: 0
@@ -44,6 +53,9 @@ $breakpoint-1024: 1024px
   outline: none
   border: none
   background-color: rgba(0, 0, 0, 0)
+
+b
+  font-family: 'Montserrat-SemiBold'
 
 a
   color: $main
@@ -88,7 +100,8 @@ h1, h2, h3, h4, h5, h6
   @extend .justify-content-around
   position: relative
   padding: 3vw
-  margin-bottom: 100px
+  @media screen and ( max-width: $breakpoint-1024 )
+    padding: 25px
   &::after
     content: ''
     position: absolute
@@ -96,6 +109,11 @@ h1, h2, h3, h4, h5, h6
     right: 3vw
     width: 30px
     height: 30px
+    @media screen and ( max-width: $breakpoint-1024 )
+      top: 20px
+      right: 20px
+      width: 15px
+      height: 15px
     border-radius: 20px
     background-color: $main
     animation: flash 1.5s ease infinite
@@ -110,7 +128,10 @@ h1, h2, h3, h4, h5, h6
     position: absolute
     width: 3vw
     height: 3vw
-    border: 10px solid $dark
+    border: $border-width solid $dark
+    @media screen and ( max-width: $breakpoint-1024 )
+      width: 35px
+      height: 35px
     &--top
       border-bottom: none
       top: 0
@@ -156,22 +177,33 @@ h1, h2, h3, h4, h5, h6
 .Header
   position: relative
   width: 100%
-  height: 95vh
+  height: 70vh
   margin-bottom: 7vh
+  @media screen and ( max-width: $breakpoint-1024 )
+    height: 45vh
   &__logo
     position: absolute
     left: 50%
-    top: 50%
+    top: 70%
     transform: translate(-50%, -50%)
     cursor: pointer
     width: 35%
     height: 35%
-    background-image: url('./img/logo.png')
+    @media screen and ( max-width: $breakpoint-1024 )
+      width: 71%
+      height: 71%
+    background-image: url('./img/logo.svg')
     background-repeat: no-repeat
     background-position: center
     background-size: contain
+    &--cosmos
+      top: 50%
+      background-image: url('./img/cosmos-logo.svg')
+    
   .App--black &__logo
-    background-image: url('./img/logo-dark.png')
+    background-image: url('./img/logo-dark.svg')
+    &--cosmos
+      background-image: url('./img/cosmos-logo-dark.svg')
 
 
 
@@ -179,18 +211,255 @@ h1, h2, h3, h4, h5, h6
   @extend .mb-5
   &__0, &__2, &__3, &__4
     padding: 0 15px
-    font-size: 20px
+    font-size: 18px
+    @media screen and ( max-width: $breakpoint-1024 )
+      font-size: 16px
   &__1, &__5
     *
-      font-family: 'Montserrat-Bold'
+      font-family: 'Montserrat-SemiBold'
     text-align: center
-    font-size: 45px
+    font-size: 24px
+    @media screen and ( max-width: $breakpoint-1024 )
+      font-size: 20px
     margin-bottom: 35px
 
 
 .credits
   line-height: 1.75
-  font-size: 20px
+  font-size: 18px
+  @media screen and ( max-width: $breakpoint-1024 )
+    font-size: 16px
   h2
     text-align: center
     margin-bottom: 30px
+
+
+
+.start
+  margin: auto
+  margin-top: 120px
+  margin-bottom: 100px
+  width: calc(100% - #{$border-width} * 8)
+  line-height: 3
+  font-size: 30px
+  text-align: center
+  border: $border-width solid $dark
+  position: relative
+  animation: inside1 1.5s infinite
+  @keyframes inside1
+    0%
+      border-color: $dark
+    66%
+      border-color: $dark
+    67%
+      border-color: $main
+    99%
+      border-color: $main
+    100%
+      border-color: $dark
+  &::before, &::after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    border: $border-width solid $dark
+  &::before
+    width: calc(100% + #{$border-width} * 6)
+    height: calc(100% + #{$border-width} * 6)
+    animation: inside2 1.5s infinite
+    @keyframes inside2
+      0%
+        border-color: $dark
+      32%
+        border-color: $dark
+      33%
+        border-color: $main
+      66%
+        border-color: $main
+      67%
+        border-color: $dark
+      100%
+        border-color: $dark
+  &::after
+    width: calc(100% + #{$border-width} * 10)
+    height: calc(100% + #{$border-width} * 10)
+    animation: inside3 1.5s infinite
+    @keyframes inside3
+      0%
+        border-color: $main
+      32%
+        border-color: $main
+      33%
+        border-color: $dark
+      100%
+        border-color: $dark
+
+.App--black
+  .start
+    border-color: $light
+    animation: inside1d 1.5s infinite
+    @keyframes inside1d
+      0%
+        border-color: $light
+      66%
+        border-color: $light
+      67%
+        border-color: $main
+      99%
+        border-color: $main
+      100%
+        border-color: $light
+    &::before, &::after
+      border-color: $light
+    &::before
+      animation: inside2d 1.5s infinite
+      @keyframes inside2d
+        0%
+          border-color: $light
+        32%
+          border-color: $light
+        33%
+          border-color: $main
+        66%
+          border-color: $main
+        67%
+          border-color: $light
+        100%
+          border-color: $light
+    &::after
+      animation: inside3d 1.5s infinite
+      @keyframes inside3d
+        0%
+          border-color: $main
+        32%
+          border-color: $main
+        33%
+          border-color: $light
+        100%
+          border-color: $light
+
+
+
+.fader
+  width: 100vw
+  height: 100vh
+  position: fixed
+  z-index: 100
+  top: 0
+  left: 0
+  background-color: $light
+  opacity: 1
+  transition: opacity 2s
+  &--transparent
+    opacity: 0
+  &--hidden
+    @extend .d-none
+
+
+$red: $main
+$yellow: #f4d214
+$green: #11d111
+
+.faq
+  border: $border-width solid $dark
+  margin-bottom: 80px
+  height: 50vh
+  min-height: 200px
+  h2
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)    
+  padding: calc(#{$border-width} * 2.5)
+  position: relative
+  &__container
+    position: relative
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+  &__item
+    position: absolute
+    z-index: 1000
+    font-family: 'Montserrat-ExtraBold'
+    text-align: center
+    font-size: 24px
+    @media screen and ( max-width: $breakpoint-1024 )
+      font-size: 20px
+    width: calc(#{$border-width} * 5)
+    height: calc(#{$border-width} * 5)
+    line-height: calc(#{$border-width} * 5)
+    border-radius: calc(#{$border-width} * 5)
+    transform: translate(-50%, -50%)
+    cursor: pointer
+    &--red
+      background-color: $red
+    &--yellow
+      background-color: $yellow
+    &--green
+      background-color: $green
+  &__background
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    opacity: .5
+    cursor: pointer
+    &--red
+      background-color: $red
+    &--yellow
+      background-color: $yellow
+    &--green
+      background-color: $green
+  &__window
+    position: fixed
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    width: 80vw
+    height: 80vh
+    overflow-y: scroll
+    padding: 30px 20px 20px
+    border: $border-width solid $dark
+    background-color: $light
+    z-index: 2000
+    &__cross
+      cursor: pointer
+      position: absolute
+      top: calc(#{$border-width} * 2)
+      right: calc(#{$border-width} * 2)
+      width: calc(#{$border-width} * 2)
+      height: calc(#{$border-width} * 2)
+      &::before, &::after
+        content: ''
+        position: absolute
+        top: 50%
+        right: -50%
+        width: calc(#{$border-width} * 4)
+        height: calc(#{$border-width})
+        background-color: $dark
+      &::before
+        transform: translate(0, -50%) rotate(-45deg)
+      &::after
+        transform: translate(0, -50%) rotate(45deg)
+    &__title
+      font-family: 'Montserrat-SemiBold'
+      text-align: center
+      margin-bottom: 35px
+      font-size: 24px
+      @media screen and ( max-width: $breakpoint-1024 )
+        font-size: 20px
+    &__text
+      font-size: 18px
+      @media screen and ( max-width: $breakpoint-1024 )
+        font-size: 16px
+
+  .App--black &
+    border-color: $light
+  // .App--black &__window
+  //   border-color: $light
+  //   background-color: $dark
+  // .App--black &__cross::before, .App--black &__cross::after
+  //   background-color: $light

@@ -5,7 +5,7 @@ import insertLineBreaks from 'utils/insertLineBreaks'
 
 
 const textChangeInterval = 30000
-const letterTypeInterval = 50
+const letterTypeInterval = 42
 const caretFlashInterval = 600
 const caretCooldownVisibilityInterval = 100
 
@@ -30,7 +30,10 @@ class TypeAnimation extends Component {
     /* Type Letter */
     const typeLetterRandomInterval = () => {
       if (this._ismounted) {
-        if (this.props.isVisible && this.state.currentLetterIndex < this.props.texts[this.state.currentTextIndex].length) {
+        if (!this._wasReached && this.props.isVisible)
+          this._wasReached = true
+
+        if (this._wasReached && this.state.currentLetterIndex < this.props.texts[this.state.currentTextIndex].length) {
           this.setState({
             caretCooldownVisibility: true,
             currentLetterIndex: this.state.currentLetterIndex + 1,

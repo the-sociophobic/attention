@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Head from 'components/Head'
+import Fader from 'sections/Fader'
 import Header from 'sections/Header'
 import Description from 'sections/Description'
 import FAQ from 'sections/FAQ'
@@ -20,6 +21,7 @@ export default class extends React.Component {
   render = () =>
     <div className={`App App--${this.state.isWhite ? "white" : "black"}`}>
       <Head />
+      <Fader />
       <Header changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
       <Description changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
       <FAQ changeColor={() => this.setState({isWhite: !this.state.isWhite})} />

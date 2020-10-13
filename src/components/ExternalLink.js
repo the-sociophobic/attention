@@ -1,5 +1,8 @@
 import React from 'react'
 
+import isTouchDevice from 'utils/isTouchDevice'
+
+
 export default props =>
   <a
     className={props.className}
@@ -7,7 +10,7 @@ export default props =>
     target={props.newTab ? "_blank" : ""}
     rel="noopener noreferrer"
     onClick={() => props.changeColor()}
-    onMouseEnter={() => props.changeColor()}
+    onMouseEnter={() => !isTouchDevice() && props.changeColor()}
   >
     {props.children}
   </a>

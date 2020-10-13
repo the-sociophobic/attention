@@ -1,5 +1,7 @@
 import React from 'react'
 
+import ExternalLink from 'components/ExternalLink'
+
 
 export default class extends React.Component {
   constructor(props) {
@@ -8,7 +10,11 @@ export default class extends React.Component {
   }
 
   render = () =>
-    <div className="">
-      
+    <div className="container">
+      <ExternalLink newTab to="https://t.me/tgftstbot" changeColor={this.props.changeColor}>
+        <div className="start">
+          <b>начать</b>
+        </div>
+      </ExternalLink>
     </div>
 }
