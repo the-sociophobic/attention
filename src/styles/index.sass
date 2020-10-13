@@ -366,12 +366,13 @@ $green: #11d111
   margin-bottom: 80px
   height: 50vh
   min-height: 200px
-  h2
+  h1
+    font-size: 3.5rem
     position: absolute
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)    
-  padding: calc(#{$border-width} * 2.5)
+  padding: calc(#{$border-width} * 3.5)
   position: relative
   &__container
     position: relative
@@ -382,23 +383,44 @@ $green: #11d111
   &__item
     position: absolute
     z-index: 1000
-    font-family: 'Montserrat-ExtraBold'
+    font-family: 'Montserrat-SemiBold'
     text-align: center
-    font-size: 24px
-    @media screen and ( max-width: $breakpoint-1024 )
-      font-size: 20px
-    width: calc(#{$border-width} * 5)
-    height: calc(#{$border-width} * 5)
-    line-height: calc(#{$border-width} * 5)
-    border-radius: calc(#{$border-width} * 5)
+    font-size: calc(#{$border-width} * 7)
+    width: calc(#{$border-width} * 7)
+    height: calc(#{$border-width} * 7)
+    line-height: calc(#{$border-width} * 7)
+    border-radius: calc(#{$border-width} * 7)
     transform: translate(-50%, -50%)
     cursor: pointer
+    &::after
+      content: ''
+      position: absolute
+      top: 50%
+      left: 50%
+      width: 100%
+      height: 100%
+      border-radius: calc(#{$border-width} * 7)
+      transform: translate(-50%, -50%)
+      animation: pulse 1s infinite
+      @keyframes pulse
+        0%
+          opacity: 1
+          transform: translate(-50%, -50%) scale(1)
+        100%
+          opacity: 0
+          transform: translate(-50%, -50%) scale(1.5)          
     &--red
       background-color: $red
+      &::after
+        border: 4px solid $red
     &--yellow
       background-color: $yellow
+      &::after
+        border: 4px solid $yellow
     &--green
       background-color: $green
+      &::after
+        border: 4px solid $green
   &__background
     position: fixed
     top: 0

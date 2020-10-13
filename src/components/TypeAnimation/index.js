@@ -30,10 +30,11 @@ class TypeAnimation extends Component {
     /* Type Letter */
     const typeLetterRandomInterval = () => {
       if (this._ismounted) {
-        if (!this._wasReached && this.props.isVisible)
-          this._wasReached = true
+        // if (!this._wasReached && this.props.isVisible)
+        //   this._wasReached = true
 
-        if (this._wasReached && this.state.currentLetterIndex < this.props.texts[this.state.currentTextIndex].length) {
+        // if (this._wasReached && this.state.currentLetterIndex < this.props.texts[this.state.currentTextIndex].length) {
+        if (this.state.currentLetterIndex < this.props.texts[this.state.currentTextIndex].length) {
           this.setState({
             caretCooldownVisibility: true,
             currentLetterIndex: this.state.currentLetterIndex + 1,

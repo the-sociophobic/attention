@@ -36,10 +36,14 @@ const questions = [
   },
 ]
 
-var vecA = new THREE.Vector2(0, 0)
-var vecB = new THREE.Vector2(0, 0)
-const threshold = 1
-const speed = 1
+var posA = new THREE.Vector2(0, 0)
+var posB = new THREE.Vector2(0, 0)
+var movA = new THREE.Vector2(0, 0)
+var movB = new THREE.Vector2(0, 0)
+var distance = new THREE.Vector2(0, 0)
+var distanceNormalized = new THREE.Vector2(0, 0)
+const threshold = .35
+const speed = .35
 
 const outOfRange = number =>
   number < 0 || number > 100
@@ -65,16 +69,16 @@ export default class extends React.Component {
       ],
       mov: [
         {
-          x: Math.random() - .5,
-          y: Math.random() - .5,
+          x: Math.random() - .5 * 2,
+          y: Math.random() - .5 * 2,
         },
         {
-          x: Math.random() - .5,
-          y: Math.random() - .5,
+          x: Math.random() - .5 * 2,
+          y: Math.random() - .5 * 2,
         },
         {
-          x: Math.random() - .5,
-          y: Math.random() - .5,
+          x: Math.random() - .5 * 2,
+          y: Math.random() - .5 * 2,
         },
       ],
     }
@@ -93,6 +97,7 @@ export default class extends React.Component {
     let pos = this.state.pos.slice()
     let mov = this.state.mov.slice()
 
+    // walls collision
     for (let index in pos) {
       if (outOfRange(pos[index].x + mov[index].x * threshold))
         mov[index].x *= -1
@@ -100,6 +105,51 @@ export default class extends React.Component {
         mov[index].y *= -1
     }
 
+    // items collision
+    for (let i = 0; i < pos.length - 1; i++)
+      for (let j = i + 1; j < pos.length; j++) {
+        posA
+          .set(pos[i].x, pos[i].y)
+          .add(
+            movA
+              .set(mov[i].x, mov[i].y)
+              .multiplyScalar(speed))
+        posB
+          .set(pos[j].x, pos[j].y)
+          .add(
+            movB
+              .set(mov[j].x, mov[j].y)
+              .multiplyScalar(speed))
+
+        distance.subVectors(posA, posB)
+
+        if (distance.length() < 15) {
+          distanceNormalized.copy(distance).normalize()
+          movA.set(mov[i].x, mov[i].y)
+          movB.set(mov[j].x, mov[j].y)
+          
+          //used as new movA
+          posA
+            .copy(distanceNormalized)
+            .multiplyScalar(distanceNormalized.dot(movA) * -2)
+            .add(movA)
+            .normalize()
+
+          //used as new movB
+          posB
+            .copy(distanceNormalized)
+            .multiplyScalar(distanceNormalized.dot(movB) * -2)
+            .add(movB)
+            .normalize()
+            
+          mov[i].x = posA.x
+          mov[i].y = posA.y
+          mov[j].x = posB.x
+          mov[j].y = posB.y
+        }
+      }
+
+    // add movement
     for (let index in pos) {
       pos[index].x += mov[index].x * speed
       pos[index].y += mov[index].y * speed
@@ -137,7 +187,7 @@ export default class extends React.Component {
   render = () =>
     <div className="container">
       <div className="faq">
-        <h2>FAQ</h2>
+        <h1>FAQ</h1>
         <div className="faq__container">
           {questions.map((item, index) =>
             <div
