@@ -1,6 +1,7 @@
 import React from 'react'
 
 import ExternalLink from 'components/ExternalLink'
+import isTouchDevice from 'utils/isTouchDevice'
 
 
 export default class extends React.Component {
@@ -11,8 +12,11 @@ export default class extends React.Component {
 
   render = () =>
     <div className="container">
-      <ExternalLink newTab to="https://t.me/tgftstbot" changeColor={this.props.changeColor}>
-        <div className="start">
+      <ExternalLink newTab to="https://t.me/vnimaniebot" changeColor={this.props.changeColor}>
+        <div
+          className="start"
+          onMouseEnter={() => !isTouchDevice() && this.props.changeColor()}
+        >
           <b>начать</b>
         </div>
       </ExternalLink>

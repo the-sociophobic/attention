@@ -10,7 +10,7 @@ export default props =>
     target={props.newTab ? "_blank" : ""}
     rel="noopener noreferrer"
     onClick={() => props.changeColor()}
-    onMouseEnter={() => !isTouchDevice() && props.changeColor()}
+    // onMouseEnter={() => !isTouchDevice() && props.changeColor()}
   >
     {props.children}
   </a>
