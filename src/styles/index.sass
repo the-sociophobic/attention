@@ -59,12 +59,12 @@ $border-width: var(--border-width)
 b
   font-family: 'Montserrat-SemiBold'
 
-a
-  color: $main
+a.lev-link
+  color: $main !important
   @extend .text-nowrap
   &:hover
-    color: $main
-    text-decoration: underline
+    color: $main !important
+    text-decoration: underline !important
 
 h1, h2, h3, h4, h5, h6
   font-family: 'Montserrat-Bold'
@@ -430,7 +430,7 @@ $green: #11d111
     top: 0
     left: 0
     width: 100vw
-    height: 100vh
+    height: 120vh
     // opacity: .95
     cursor: pointer
     &--red

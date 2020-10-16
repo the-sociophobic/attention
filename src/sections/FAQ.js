@@ -43,16 +43,18 @@ var movB = new THREE.Vector2(0, 0)
 var distance = new THREE.Vector2(0, 0)
 var distanceNormalized = new THREE.Vector2(0, 0)
 const threshold = .35
-const speed = .35
+const speed = 1.35
 
-const outOfRange = number =>
-  number < 0 || number > 100
 
 export default class extends React.Component {
   constructor(props) {
     super(props)
+
     this.state = {
       currentQuestion: undefined,
+      diameter: 15,
+      W: 100,
+      H: 100,
       pos: [
         {
           x: 10,
@@ -69,26 +71,56 @@ export default class extends React.Component {
       ],
       mov: [
         {
-          x: Math.random() - .5 * 2,
-          y: Math.random() - .5 * 2,
+          x: (Math.random() - .5) * speed * 1.4,
+          y: (Math.random() - .5) * speed * 1.4,
         },
         {
-          x: Math.random() - .5 * 2,
-          y: Math.random() - .5 * 2,
+          x: (Math.random() - .5) * speed * 1.4,
+          y: (Math.random() - .5) * speed * 1.4,
         },
         {
-          x: Math.random() - .5 * 2,
-          y: Math.random() - .5 * 2,
+          x: (Math.random() - .5) * speed * 1.4,
+          y: (Math.random() - .5) * speed * 1.4,
         },
       ],
     }
+
+    this.fieldRef = React.createRef()
+    this.itemRef = React.createRef()
   }
 
-  componentDidMount = () =>
+  componentDidMount = () => {
+    this.setState({
+      W: this.fieldRef.current.clientWidth,
+      H: this.fieldRef.current.clientHeight,
+      diameter: this.itemRef.current.clientWidth,
+      pos: [
+        {
+          x: 10 / 100 * (this.fieldRef.current.clientHeight - this.itemRef.current.clientWidth),
+          y: 10 / 100 * (this.fieldRef.current.clientWidth - this.itemRef.current.clientWidth),
+        },
+        {
+          x: 10 / 100 * (this.fieldRef.current.clientHeight - this.itemRef.current.clientWidth),
+          y: 90 / 100 * (this.fieldRef.current.clientWidth - this.itemRef.current.clientWidth),
+        },
+        {
+          x: 90 / 100 * (this.fieldRef.current.clientHeight - this.itemRef.current.clientWidth),
+          y: 50 / 100 * (this.fieldRef.current.clientWidth - this.itemRef.current.clientWidth),
+        },
+      ],
+    })
+
     this.frameId = window.requestAnimationFrame(this.animate)
+  }
 
   componentWillUnmount = () =>
     cancelAnimationFrame(this.frameId)
+
+  outOfRangeW = number =>
+    number < 0 || number > this.state.H - this.state.diameter
+
+  outOfRangeH = number =>
+    number < 0 || number > this.state.W - this.state.diameter
 
   animate = () => {
     let pos = this.state.pos.slice()
@@ -96,9 +128,9 @@ export default class extends React.Component {
 
     // walls collision
     for (let index in pos) {
-      if (outOfRange(pos[index].x + mov[index].x * threshold))
+      if (this.outOfRangeW(pos[index].x + mov[index].x * threshold))
         mov[index].x *= -1
-      if (outOfRange(pos[index].y + mov[index].y * threshold))
+      if (this.outOfRangeH(pos[index].y + mov[index].y * threshold))
         mov[index].y *= -1
     }
 
@@ -110,17 +142,17 @@ export default class extends React.Component {
           .add(
             movA
               .set(mov[i].x, mov[i].y)
-              .multiplyScalar(speed))
+              .multiplyScalar(threshold))
         posB
           .set(pos[j].x, pos[j].y)
           .add(
             movB
               .set(mov[j].x, mov[j].y)
-              .multiplyScalar(speed))
+              .multiplyScalar(threshold))
 
         distance.subVectors(posA, posB)
 
-        if (distance.length() < 15) {
+        if (distance.length() < this.state.diameter) {
           distanceNormalized.copy(distance).normalize()
           movA.set(mov[i].x, mov[i].y)
           movB.set(mov[j].x, mov[j].y)
@@ -185,7 +217,10 @@ export default class extends React.Component {
 
   render = () =>
     <div className="container">
-      <div className="faq">
+      <div
+        className="faq"
+        ref={this.fieldRef}
+      >
         <h1>F.A.Q.</h1>
         <div className="faq__container">
           {questions.map((item, index) =>
@@ -196,9 +231,10 @@ export default class extends React.Component {
               }}
               className={`faq__item faq__item--${item.color}`}
               style={{
-                top: this.state.pos[index].x + "%",
-                left: this.state.pos[index].y + "%",
+                top: this.state.pos[index].x + "px",
+                left: this.state.pos[index].y + "px",
               }}
+              {...(index === 0 && {ref: this.itemRef})}
             >
               ?
             </div>

@@ -5,7 +5,7 @@ import isTouchDevice from 'utils/isTouchDevice'
 
 export default props =>
   <a
-    className={props.className}
+    className={`lev-link ${props.className}`}
     href={props.to}
     target={props.newTab ? "_blank" : ""}
     rel="noopener noreferrer"
