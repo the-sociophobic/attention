@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "18daa54ebb5cbac2d0400209abfe0572",
+    "revision": "4aefd5d47e1357a2f69e5a690e5a4aa1",
     "url": "/attention/index.html"
   },
   {
-    "revision": "8315fe579c56286794f4",
-    "url": "/attention/static/css/main.acb9619a.chunk.css"
+    "revision": "3324382a33998529b922",
+    "url": "/attention/static/css/main.bbd1ee4a.chunk.css"
   },
   {
-    "revision": "226c9db4fac36af24f01",
-    "url": "/attention/static/js/2.986262ed.chunk.js"
+    "revision": "d896e7034604f5290bd5",
+    "url": "/attention/static/js/2.b6117c7a.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/attention/static/js/2.986262ed.chunk.js.LICENSE.txt"
+    "url": "/attention/static/js/2.b6117c7a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8315fe579c56286794f4",
-    "url": "/attention/static/js/main.27c3f5fe.chunk.js"
+    "revision": "3324382a33998529b922",
+    "url": "/attention/static/js/main.ea23d8b4.chunk.js"
   },
   {
     "revision": "3fea38bc3ced3bc52e89",
@@ -40,6 +40,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/attention/static/media/Montserrat-SemiBold.c641dbee.ttf"
   },
   {
+    "revision": "0b3396003346af8ef2f5c19308b17046",
+    "url": "/attention/static/media/bicycle-dark.0b339600.png"
+  },
+  {
+    "revision": "efc5feea4536879b2f9f9dede2b597b4",
+    "url": "/attention/static/media/bicycle.efc5feea.png"
+  },
+  {
     "revision": "e7ae0934251739b4d1870581664b435d",
     "url": "/attention/static/media/cosmos-logo-dark.e7ae0934.svg"
   },
@@ -50,6 +58,22 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "1f758ba82465bd9e27c5adc48b609e0c",
     "url": "/attention/static/media/favicon-black.1f758ba8.ico"
+  },
+  {
+    "revision": "dfd60f70d588015a387c5a5624f723b2",
+    "url": "/attention/static/media/gang-dark.dfd60f70.png"
+  },
+  {
+    "revision": "907494793bcbe21ae0c53e421a2f2f15",
+    "url": "/attention/static/media/gang.90749479.png"
+  },
+  {
+    "revision": "41cf51b1e19a1659f1bd53ccadbf0259",
+    "url": "/attention/static/media/gull-dark.41cf51b1.png"
+  },
+  {
+    "revision": "f2871728073d5c0850091c9a24640a82",
+    "url": "/attention/static/media/gull.f2871728.png"
   },
   {
     "revision": "bfb1cdfe9630cbefe6a770402984db2e",
