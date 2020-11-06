@@ -11,14 +11,12 @@ export default class extends React.Component {
   }
 
   render = () =>
-    <div className="container">
-      <ExternalLink newTab to="https://t.me/vnimaniebot" changeColor={this.props.changeColor}>
-        <div
-          className="start"
-          onMouseEnter={() => !isTouchDevice() && this.props.changeColor()}
-        >
-          <b>начать</b>
-        </div>
-      </ExternalLink>
-    </div>
+    <ExternalLink newTab to="https://t.me/vnimaniebot" changeColor={this.props.changeColor}>
+      <div
+        className="start"
+        onMouseEnter={() => !isTouchDevice() && this.props.changeColor()}
+      >
+        <b>начать</b>
+      </div>
+    </ExternalLink>
 }

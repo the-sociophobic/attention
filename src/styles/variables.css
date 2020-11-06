@@ -1,22 +1,39 @@
 :root {
   --border-width: 10px;
+
+  --header-margin: 30px;
+  /* --header-margin: calc(--border-width * 5); */
+  --header-border: 2px;
+  --header-padding: 20px;
 }
 
 @media screen and ( max-width: 1024px ) {
   :root {
     --border-width: 8px;
-  }
+
+    /* --header-margin: 24px; */
+    --header-border: 2px;
+    --header-padding: 16px;
+    }
 }
 
 @media screen and ( max-width: 768px ) {
   :root {
     --border-width: 8px;
+
+    /* --header-margin: 24px; */
+    --header-border: 2px;
+    --header-padding: 16px;
   }
 }
   
 @media screen and ( max-width: 576px ) {
   :root {
     --border-width: 7px;
+
+    /* --header-margin: 21px; */
+    --header-border: 1px;
+    --header-padding: 14px;
   }
 }
   

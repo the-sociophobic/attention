@@ -176,41 +176,167 @@ h1, h2, h3, h4, h5, h6
       opacity: 1
 
 
-      
+// $header-margin: var(--header-margin)
+$header-border: var(--header-border)
+// $header-padding: var(--header-padding)
+$header-margin: calc(#{$border-width} * 5)
+// $header-border: calc(#{$border-width} / 4)
+$header-padding: calc(#{$border-width} * 2.5)
+
 .Header
   position: relative
   width: 100%
-  height: 70vh
+  height: 100vh
   margin-bottom: 7vh
   @media screen and ( max-width: $breakpoint-1024 )
-    height: 45vh
-  &__logo
+    height: 75vh
+  &__logo, &__cosmos
     position: absolute
-    left: 50%
-    top: 70%
-    transform: translate(-50%, -50%)
-    cursor: pointer
-    width: 35%
-    height: 35%
-    @media screen and ( max-width: $breakpoint-1024 )
-      width: 71%
-      height: 71%
-    background-image: url('./img/logo.svg')
     background-repeat: no-repeat
     background-position: center
     background-size: contain
-    &--cosmos
-      top: 50%
-      background-image: url('./img/cosmos-logo.svg')
-    
-  .App--black &__logo
-    background-image: url('./img/logo-dark.svg')
-    &--cosmos
+    cursor: pointer
+    z-index: 26
+  &__logo
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    width: 50%
+    padding-top: calc(50% * .32)
+    @media screen and ( max-width: $breakpoint-1024 )
+      width: 60%
+      padding-top: calc(60% * .32)
+    background-image: url('./img/logo.svg')
+    .App--black &
+      background-image: url('./img/logo-dark.svg')
+  &__cosmos
+    width: 20%
+    padding-top: calc(20% * .24)
+    @media screen and ( max-width: $breakpoint-1024 )
+      width: 35%
+      padding-top: calc(35% * .24)
+    top: calc(#{$header-margin} + #{$header-padding})
+    left: $header-padding
+    background-image: url('./img/cosmos-logo.svg')
+    .App--black &
       background-image: url('./img/cosmos-logo-dark.svg')
+  &__age
+    cursor: pointer
+    position: absolute
+    top: calc(#{$header-margin} + #{$header-padding})
+    right: $header-padding
+    font-family: Montserrat-SemiBold
+    font-size: 2em
+    letter-spacing: .1em
+    z-index: 26
+  &__gull, &__bicycle, &__gang
+    position: absolute
+    background-repeat: no-repeat
+    background-position: center
+    background-size: contain
+    opacity: 1
+  &__gull
+    width: 90%
+    padding-top: calc(90% * .54)
+    background-image: url('./img/gull.png')
+    .App--black &
+      background-image: url('./img/gull-dark.png')
+    top: -10%
+    left: -10%
+    z-index: 25
+  &__bicycle
+    width: 70%
+    padding-top: calc(70% * 1.028)
+    background-image: url('./img/bicycle.png')
+    .App--black &
+      background-image: url('./img/bicycle-dark.png')
+    bottom: -10%
+    right: -5%
+    z-index: 25
+    z-index: 24
+  &__gang
+    width: 15%
+    padding-top: calc(15% * 2.127)
+    background-image: url('./img/gang.png')
+    .App--black &
+      background-image: url('./img/gang-dark.png')
+    bottom: calc(#{$header-margin} + #{$header-padding})
+    left: $header-padding
+
+  &__line
+    position: absolute
+    background-color: $dark
+    .App--black &
+      background-color: $light
+    &--top
+      // width: calc(100% - #{$header-margin} * 2)
+      width: 100%
+      top: $header-margin
+      // left: $header-margin
+      left: 0
+      height: $header-border
+      z-index: 23
+    &--left, &--right
+      width: $header-border
+      height: calc(100% - #{$header-margin} * 2)
+      top: $header-margin
+    &--left
+      // left: $header-margin
+      left: 0
+      z-index: 26
+    &--right
+      // right: $header-margin
+      right: 0
+      z-index: 23
+  &__bottom
+    position: absolute
+    // left: $header-margin
+    left: 0
+    bottom: 0
+    // width: calc(100% - #{$header-margin} * 2)
+    width: 100%
+    height: calc(#{$header-margin} * 2 + #{$header-border})
+    line-height: calc(#{$header-margin} * 2 + #{$header-border})
+    @extend .d-flex
+    @extend .flex-row
+    z-index: 26
+    &__text
+      font-family: Montserrat-SemiBold
+      *
+        font-family: Montserrat-SemiBold
+      letter-spacing: .2em
+      font-size: 1.2em
+    &__left, &__right
+      flex-grow: 1
+      margin-top: $header-margin
+      margin-bottom: $header-margin
+      height: $header-border
+      background-color: $dark
+      .App--black &
+        background-color: $light
+      position: relative
+      &::after
+        content: ''
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        width: calc(#{$header-border} * 7)
+        height: calc(#{$header-border} * 7)
+        background-color: inherit
+    &__left
+      margin-right: calc(#{$header-padding} / 2)
+      &::after
+        right: 0
+    &__right
+      margin-left: calc(#{$header-padding} / 2)
+      &::after
+        left: 0
 
 
 
 .description
+  position: relative
+  z-index: 26
   @extend .mb-5
   &__0, &__2, &__3, &__4
     @extend .text-justify

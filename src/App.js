@@ -20,12 +20,14 @@ export default class extends React.Component {
 
   render = () =>
     <div className={`App App--${this.state.isWhite ? "white" : "black"}`}>
-      <Head />
+      <div className="container">
+        <Head />
+        <Header changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
+        <Description changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
+        <FAQ changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
+        <Credits changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
+        <Start changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
+      </div>
       <Fader />
-      <Header changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
-      <Description changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
-      <FAQ changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
-      <Credits changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
-      <Start changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
-    </div> 
+    </div>
 }

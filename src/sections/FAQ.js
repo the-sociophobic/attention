@@ -216,7 +216,7 @@ export default class extends React.Component {
       </>
 
   render = () =>
-    <div className="container">
+    <>
       <div
         className="faq"
         ref={this.fieldRef}
@@ -244,5 +244,5 @@ export default class extends React.Component {
       {ReactDOM.createPortal(
         this.renderWindow(this.state.currentQuestion)
         , document.getElementById("root"))}
-    </div>
+    </>
 }
