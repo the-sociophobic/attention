@@ -14,7 +14,7 @@ export default class extends React.Component {
     super(props)
 
     this.state = {
-      isWhite: true
+      isWhite: Math.round(Math.random() * 25) % 2 === 0
     }
   }
 
