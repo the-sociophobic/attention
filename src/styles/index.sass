@@ -595,6 +595,7 @@ $green: #11d111
     height: 120vh
     // opacity: .95
     cursor: pointer
+    z-index: 30
     &--red
       background-color: $red
     &--yellow
@@ -614,7 +615,7 @@ $green: #11d111
     @media screen and ( max-width: $breakpoint-768 )
       width: 80vw
     height: 80vh
-    border: $border-width solid $dark
+    border: $header-border solid $dark
     background-color: $light
     z-index: 2000
     &__cross
@@ -630,7 +631,7 @@ $green: #11d111
         top: 50%
         right: -50%
         width: calc(#{$border-width} * 4)
-        height: calc(#{$border-width})
+        height: calc(#{$header-border})
         background-color: $dark
       &::before
         transform: translate(0, -50%) rotate(-45deg)

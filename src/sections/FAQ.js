@@ -192,17 +192,28 @@ export default class extends React.Component {
     this.frameId = requestAnimationFrame(this.animate)
   }
 
+  openQuestion = question => {
+    this.setState({currentQuestion: question})
+    this.props.changeColor()
+    document.body.classList.add('overflow-hidden')
+  }
+
+  closeQuestion = () => {
+    this.setState({currentQuestion: undefined})
+    document.body.classList.remove('overflow-hidden')
+  }
+
   renderWindow = props =>
     props &&
       <>
         <div
           className={`faq__background faq__background--${props.color}`}
-          onClick={() => this.setState({currentQuestion: undefined})}
+          onClick={() => this.closeQuestion()}
         />
         <div className="faq__window">
           <div
             className="faq__window__cross"
-            onClick={() => this.setState({currentQuestion: undefined})}
+            onClick={() => this.closeQuestion()}
           />
           <div className="faq__window__content">
             <div className="faq__window__content__title">
@@ -225,10 +236,7 @@ export default class extends React.Component {
         <div className="faq__container">
           {questions.map((item, index) =>
             <div
-              onClick={() => {
-                this.setState({currentQuestion: item})
-                this.props.changeColor()
-              }}
+              onClick={() => this.openQuestion(item)}
               className={`faq__item faq__item--${item.color}`}
               style={{
                 top: this.state.pos[index].x + "px",
