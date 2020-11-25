@@ -7,6 +7,7 @@ import Description from 'sections/Description'
 import FAQ from 'sections/FAQ'
 import Credits from 'sections/Credits'
 import Start from 'sections/Start'
+import Documents from 'sections/Documents'
 
 
 export default class extends React.Component {
@@ -27,6 +28,7 @@ export default class extends React.Component {
         <FAQ changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
         <Credits changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
         <Start changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
+        <Documents changeColor={() => this.setState({isWhite: !this.state.isWhite})} />
       </div>
       <Fader />
     </div>

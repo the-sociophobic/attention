@@ -394,6 +394,44 @@ h1, h2, h3, h4, h5, h6
   h2
     text-align: center
     margin-bottom: 30px
+  &__lines
+    position: relative
+    &__item
+      color: rgba(0, 0, 0, 0)
+      & > a
+        color: rgba(0, 0, 0, 0) !important
+      width: 100%
+      height: 
+      &__block
+        width: 100%
+        color: $dark
+        background-color: $light
+        position: absolute
+        left: 0
+        transition: top 1s
+        z-index: 10
+        &::before
+          content: ''
+          z-index: 15
+          position: absolute
+          top: 0
+          left: 0
+          width: 100%
+          height: 100%
+          box-shadow: 0 0 10px $dark
+          opacity: 0
+          transition: opacity .2s
+        &--swapped
+          z-index: 20 !important
+          &::before
+            opacity: .5
+
+.App--black .credits__lines__item__block
+  color: $light
+  background-color: $dark
+  &::before
+    box-shadow: 0 0 10px $light
+
 
 
 
@@ -666,3 +704,31 @@ $green: #11d111
   //   background-color: $dark
   // .App--black &__cross::before, .App--black &__cross::after
   //   background-color: $light
+
+
+
+.documents
+  @extend .my-5
+  @extend .py-3
+  &__text
+    @extend .text-center
+    @extend .font-italic
+  &__files
+    @extend .d-flex
+    @extend .flex-column
+    margin: auto
+    &__item
+      position: relative
+      padding-left: 1.5em
+      &::before
+        content: ''
+        position: absolute
+        left: 0
+        top: 50%
+        transform: translateY(-55%)
+        width: 1em
+        height: 1em
+        background-image: url(./img/download.svg)
+        background-repeat: no-repeat
+        background-position: center
+        background-size: contain
