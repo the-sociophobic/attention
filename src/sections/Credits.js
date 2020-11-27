@@ -36,8 +36,11 @@ export default class extends React.Component {
     this.swapInterval = setInterval(() => this.swapRandom(), swapIntervalTime)
   }
 
-  componentWillUnmount = () =>
+  componentWillUnmount = () => {
     clearInterval(this.swapInterval)
+    clearTimeout(this.swapTimeout)
+    clearTimeout(this.clearSwappedClassTimeout)
+  }
 
   swapRandom = () => {
     const indexes = this.state.linesOrder.slice().sort( () => .5 - Math.random() )
@@ -68,7 +71,7 @@ export default class extends React.Component {
               this.state.linesOrder.indexOf(index)))})
       , redrawTime)
 
-    this.swapTimeout = setTimeout(() =>
+    this.clearSwappedClassTimeout = setTimeout(() =>
       this.setState({ swappedIndex: -1 })
       , swapAnimationTime * 2 + redrawTime)
   }
