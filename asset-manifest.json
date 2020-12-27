@@ -1,24 +1,22 @@
 {
   "files": {
-    "main.css": "/attention/static/css/main.f0cda01b.chunk.css",
-    "main.js": "/attention/static/js/main.7835ded3.chunk.js",
-    "main.js.map": "/attention/static/js/main.7835ded3.chunk.js.map",
-    "runtime-main.js": "/attention/static/js/runtime-main.72173e2a.js",
-    "runtime-main.js.map": "/attention/static/js/runtime-main.72173e2a.js.map",
-    "static/js/2.6a4fb440.chunk.js": "/attention/static/js/2.6a4fb440.chunk.js",
-    "static/js/2.6a4fb440.chunk.js.map": "/attention/static/js/2.6a4fb440.chunk.js.map",
+    "main.css": "/attention/static/css/main.0653e857.chunk.css",
+    "main.js": "/attention/static/js/main.19f4e5db.chunk.js",
+    "main.js.map": "/attention/static/js/main.19f4e5db.chunk.js.map",
+    "runtime-main.js": "/attention/static/js/runtime-main.a058aa9a.js",
+    "runtime-main.js.map": "/attention/static/js/runtime-main.a058aa9a.js.map",
+    "static/js/2.d37f8fe7.chunk.js": "/attention/static/js/2.d37f8fe7.chunk.js",
+    "static/js/2.d37f8fe7.chunk.js.map": "/attention/static/js/2.d37f8fe7.chunk.js.map",
     "index.html": "/attention/index.html",
-    "precache-manifest.3fcbc9343c435ba2b99f6e1c63122f78.js": "/attention/precache-manifest.3fcbc9343c435ba2b99f6e1c63122f78.js",
-    "service-worker.js": "/attention/service-worker.js",
-    "static/css/main.f0cda01b.chunk.css.map": "/attention/static/css/main.f0cda01b.chunk.css.map",
-    "static/js/2.6a4fb440.chunk.js.LICENSE.txt": "/attention/static/js/2.6a4fb440.chunk.js.LICENSE.txt",
-    "static/media/index.sass": "/attention/static/media/logo.ef337e86.svg",
-    "static/media/favicon-black.ico": "/attention/static/media/favicon-black.1f758ba8.ico"
+    "static/css/main.0653e857.chunk.css.map": "/attention/static/css/main.0653e857.chunk.css.map",
+    "static/js/2.d37f8fe7.chunk.js.LICENSE.txt": "/attention/static/js/2.d37f8fe7.chunk.js.LICENSE.txt",
+    "static/media/index.sass": "/attention/static/media/logo.15c961ce.svg",
+    "static/media/favicon-black.1a0e4188.ico": "/attention/static/media/favicon-black.1a0e4188.ico"
   },
   "entrypoints": [
-    "static/js/runtime-main.72173e2a.js",
-    "static/js/2.6a4fb440.chunk.js",
-    "static/css/main.f0cda01b.chunk.css",
-    "static/js/main.7835ded3.chunk.js"
+    "static/js/runtime-main.a058aa9a.js",
+    "static/js/2.d37f8fe7.chunk.js",
+    "static/css/main.0653e857.chunk.css",
+    "static/js/main.19f4e5db.chunk.js"
   ]
 }
