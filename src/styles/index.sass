@@ -51,12 +51,12 @@ $header-padding: calc(#{$border-width} * 2.5)
     display: none
 
 .noselect
-  -webkit-touch-callout: none;  /* iOS Safari */
-  -webkit-user-select: none;    /* Safari */
-  -khtml-user-select: none;     /* Konqueror HTML */
-  -moz-user-select: none;       /* Firefox */
-  -ms-user-select: none;        /* Internet Explorer/Edge */
-  user-select: none;            /* Non-prefixed version, currently supported by Chrome and Opera */
+  -webkit-touch-callout: none  /* iOS Safari */
+  -webkit-user-select: none    /* Safari */
+  -khtml-user-select: none     /* Konqueror HTML */
+  -moz-user-select: none       /* Firefox */
+  -ms-user-select: none        /* Internet Explorer/Edge */
+  user-select: none            /* Non-prefixed version, currently supported by Chrome and Opera */
 
 .button
   padding: 0
@@ -114,8 +114,7 @@ h1, h2, h3, h4, h5, h6
   padding: 3vw
   @media screen and ( max-width: $breakpoint-1024 )
     padding: 25px
-  &::after
-    content: ''
+  &__light
     position: absolute
     top: 3vw
     right: 3vw
@@ -161,6 +160,7 @@ h1, h2, h3, h4, h5, h6
 
 .App--black .frame__corner
   border-color: $light
+  color: $light
 
 .type-animation
   &__text-area
@@ -401,7 +401,7 @@ h1, h2, h3, h4, h5, h6
       & > a
         color: rgba(0, 0, 0, 0) !important
       width: 100%
-      height: 
+      // height: 
       &__block
         width: 100%
         color: $dark
