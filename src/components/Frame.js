@@ -24,8 +24,8 @@ class Frame extends React.Component {
       newElem: <div
         style={{
           position: "fixed",
-          top: "10vw",
-          left: "10vh",
+          top: "15px",
+          left: "15px",
           width: "100vw",
           height: "100vh",
           zIndex: 100000,
